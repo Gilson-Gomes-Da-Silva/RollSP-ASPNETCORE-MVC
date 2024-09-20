@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProjetoGilsonDaniel_RollSP.props" />
+</Project>

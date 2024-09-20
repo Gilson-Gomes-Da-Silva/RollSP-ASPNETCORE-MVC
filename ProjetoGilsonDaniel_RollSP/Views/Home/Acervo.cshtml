@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Acervo";
+}
+
+<link rel="Stylesheet" href="../../css/site.css" />
+<title>Acervo</title>
+
+<body id="bodyAcervo">
+
+    <div id="acervo" class="barraLateral">
+        <ul class="menuListButtons">
+            <li id="acervoMenuButton" class="menuButton"> <a asp-controller="Home" asp-action="Index"> <img src="../../img/menuButton.png" class="imgMenuButton" alt="Verificar Acervo" /> </a> </li>
+        </ul>
+    </div>
+
+    <div id="divItensAcervo"> 
+
+        <ul class="listaAcervo">
+
+            <li class="itemAcervo">
+                <h3 class="itemAcervoTitulo" >A fundação de Santos</h3>
+                <hr class="itemAcervoHr"/>
+                <div class="itemAcervoButton"><a asp-controller="QuizFundacaoSantos" asp-action="Index"><p>Iniciar</p></a> <div>
+            </li>
+
+            <li class="itemAcervo">
+                <h3 class="itemAcervoTitulo">Poluição, um problema de todos!</h3>
+                <hr class="itemAcervoHr" />
+                <div class="itemAcervoButton"><a href="#"><p>Iniciar</p></a> <div>
+            </li>
+
+            <li class="itemAcervo">
+                <h3 class="itemAcervoTitulo">Ameaças a biodiversidade</h3>
+                <hr class="itemAcervoHr" />
+                <div class="itemAcervoButton"><a href="#"><p>Iniciar</p></a> <div>
+            </li>
+
+        </ul>
+
+    </div>
+
+</body>

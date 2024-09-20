@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Quiz - Fundação de Santos!";
+    var usu = ViewBag.Usuario as ProjetoGilsonDaniel_RollSP.Models.Usuario;
+    var quiz = ViewBag.Quiz as ProjetoGilsonDaniel_RollSP.Models.Quiz;
+}
+
+<link rel="Stylesheet" href="../../css/site.css" />
+<title>Quiz</title>
+
+<body id="bodyQuiz">
+
+    <div id="divQuestoes">
+        <h3 class="tituloQuestao">@quiz.Titulo</h3>
+
+        <div class="divTextoIntro">
+            <p class="textoIntro">
+                @quiz.TextoIntrodutorio
+            </p>
+        </div>
+
+        <form asp-action="Resultado" method="post">
+            @for (int i = 0; i < quiz.Questoes.Count; i++)
+            {
+                var questao = quiz.Questoes[i];
+                <div class="divAlternativas">
+                    <p class="textoQuestao">@questao.Pergunta</p>
+
+                    <ul class="alternativas">
+                        @for (int j = 0; j < questao.Alternativas.Count; j++)
+                        {
+                            <li>
+
+                                <input type="radio" name="respostas[@i]" value="@questao.Alternativas[j]" required />
+                                <label for="Alternativas" class="textoAlternativa" >@questao.Alternativas[j]</label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            
+            <button class="enviaBtn" type="submit">Enviar Respostas</button>
+            <button class="enviaBtn"><a href="@Url.Action("Index", "Home")">Voltar à tela inicial</a></button>
+        </form>
+    </div>
+
+</body>

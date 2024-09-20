@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Resultado";
+    string nome = ViewBag.Nome;
+    int corretas = ViewBag.Corretas;
+    int total = ViewBag.Total;
+    int erros = total - corretas;
+    double percentual = (double)corretas / total * 100;
+    var usu = ViewBag.Usuario as ProjetoGilsonDaniel_RollSP.Models.Usuario;
+    var quiz = ViewBag.Quiz as ProjetoGilsonDaniel_RollSP.Models.Quiz;
+}
+<link rel="Stylesheet" href="../../css/site.css" />
+<title>Quiz</title>
+
+<body id="bodyResultado">
+
+    <div id="divResultado">
+    @*
+        Mensagem
+    *@
+        @if (corretas == 3)
+        {
+            <h2 class="textoMensagem">Muito bem, continue assim!</h2>
+        }
+        else if (corretas == 1 || corretas == 2)
+        {
+            <h2 class="textoMensagem">Quase lá!</h2>
+        }
+        else
+        {
+            <h2 class="textoMensagem">Vamos!</h2>
+        }
+
+        <p class="resultadoComp"><strong>@corretas</strong> / <strong>@total</strong></p>
+        <button class="enviaBtn"><a href="@Url.Action("Index", "QuizFundacaoSantos")">Iniciar um novo Roll</a></button>
+
+        <p class="textoInfo"><strong>Roll: </strong>@quiz.Titulo</p>
+        <p class="textoInfo"><strong>Acertos: </strong>@corretas</p>
+        <p class="textoInfo"><strong>Erros: </strong>@erros</p>
+    @*
+        Incentivo
+    *@
+        @if (corretas == 3)
+        {
+            <p class="textoIncentivo">Continue assim!</p>
+        }
+        else if (corretas == 1 || corretas == 2)
+        {
+            <p class="textoIncentivo">Vamos tentar novamente!</p>
+        }
+        else
+        {
+            <p class="textoIncentivo">Continue tentando para melhorar!</p>
+        }
+        <button class="enviaBtn"><a href="@Url.Action("Index", "Home")">Voltar à tela inicial</a></button>
+        <button class="enviaBtn"><a href="@Url.Action("Acervo", "Home")">Ir para o acervo</a></button>
+     
+
+    </div>
+
+</body>
